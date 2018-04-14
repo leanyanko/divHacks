@@ -6,9 +6,10 @@ import java.io.IOException;
 
 public class Checker {
     public static void main(String[] args) {
-        String csvFile = args[1];
+        // 3 C:/Users/mrsle/IdeaProjects/mlfigures/labelsForTrain.csv
+        String csvFile = args[1];//"C:/Users/mrsle/IdeaProjects/mlfigures/labelsForTrain.csv";//args[1];
         String line = "";
-        String cvsSplitBy = ",";
+        String cvsSplitBy = ", ";
         double T = 0.5;
         int l = 0;
 
@@ -25,6 +26,7 @@ public class Checker {
                     String label = data[3];
 
                     System.out.println("For data with index " + data[0] + " which is figure " + data[1] + " to guess was " + label);
+                    return;
                 }
                 l++;
             }
