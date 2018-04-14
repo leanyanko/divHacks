@@ -1,12 +1,11 @@
 package com.company;
 
-import java.io.*;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-
-public class ImageReader {
+public class LabelReader {
     private static int byteArrayToInt(byte[] b)
     {
         return   b[3] & 0xFF |
@@ -21,7 +20,7 @@ public class ImageReader {
             System.exit(0);
         }
 
-        String inputFile = "C:/Users/mrsle/IdeaProjects/mlfigures/train-images.idx3-ubyte";//args[0];
+        String inputFile = "C:/Users/mrsle/IdeaProjects/mlfigures/train-labels.idx1-ubyte";//args[0];
         String outputFile = "file"; //args[1];
 
         try {
@@ -32,43 +31,20 @@ public class ImageReader {
             byte[] rno = new byte[4];
 
             for (int i = 0; i < 4; i++)
-                    rno[i] = fileContents[i];
+                rno[i] = fileContents[i];
             System.out.println(byteArrayToInt(rno));
 
             for (int i = 0; i < 4; i++)
                 rno[i] = fileContents[i+4];
             System.out.println(byteArrayToInt(rno));
 
-            for (int i = 0; i < 4; i++)
-                rno[i] = fileContents[i+8];
-            System.out.println(byteArrayToInt(rno));
-
-            for (int i = 0; i < 4; i++)
-                rno[i] = fileContents[i+12];
-            System.out.println(byteArrayToInt(rno));
-
             for (int i = 0; i < 60000; i ++){
-                int positive = fileContents[i + 16] & 0xff;
+                int positive = fileContents[i + 8] & 0xff;
                 System.out.println(positive);
             }
-//            while(j < fileContents.length - 9) {
-//                output[j] = Byte.toUnsignedInt(fileContents[j]);
-//              //  System.out.println(output[j]);
-//                j++;
-//
-//            }
 
-
-            System.out.println(fileContents[8]);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
 }
-
-//                for (int i = 0; i < 4; i++)
-//                    rno[i] = fileContents[j + i];
-//                output[a] = byteArrayToInt(rno);
-//                System.out.println(output[a]);
-//                j += 4;
-//                a++;
