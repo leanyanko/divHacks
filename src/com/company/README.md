@@ -7,5 +7,6 @@
 #TO check the index run Checker with arguments
 `Checker.java INDEX PATH_TO_FILE_WITH_LABELS`
 
+#ReadImage and ReadLabel are for translating image and label training files
 
 

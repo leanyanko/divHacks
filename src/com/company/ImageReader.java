@@ -51,24 +51,9 @@ public class ImageReader {
                 int positive = fileContents[i + 16] & 0xff;
                 System.out.println(positive);
             }
-//            while(j < fileContents.length - 9) {
-//                output[j] = Byte.toUnsignedInt(fileContents[j]);
-//              //  System.out.println(output[j]);
-//                j++;
-//
-//            }
-
-
             System.out.println(fileContents[8]);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
 }
-
-//                for (int i = 0; i < 4; i++)
-//                    rno[i] = fileContents[j + i];
-//                output[a] = byteArrayToInt(rno);
-//                System.out.println(output[a]);
-//                j += 4;
-//                a++;
